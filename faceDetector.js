@@ -1,7 +1,16 @@
-async function detectFaces() {
+
+async function loadDetection(){
     // Load the model.
-    const model = await blazeface.load();
+    return model = await blazeface.load();
   
+
+}
+
+
+
+
+async function detectFaces(model) {
+
     // Pass in an image or video to the model. The model returns an array of
     // bounding boxes, probabilities, and landmarks, one for each detected face.
   
