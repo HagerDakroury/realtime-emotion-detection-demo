@@ -1,57 +1,10 @@
 const EMOTIONS =  ["angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"];
 const video=document.getElementById('wcf');
 const canvas=document.getElementById('overlay-canvas');
-const testCanvas=document.getElementById('test-canvas');
 
 let model,emodel,predictions,ctx;
 
 const displaySize = { width: video.width, height: video.height };
-
-
-/*const INITIAL_DATA = [
-  {id:'d1',emotion: 'Angry',value:20},
-  {id:'d2',emotion: 'Disgust',value:10},
-  {id:'d3',emotion: 'Fear',value:40},
-  {id:'d4',emotion: 'Happy',value:5},
-  {id:'d5',emotion: 'Sad',value:30},
-  {id:'d6',emotion: 'Surprise',value:15},
-  {id:'d7',emotion: 'Neutral',value:25}
-];
-
-const BAR_WIDTH = 400;
-const BAR_HEIGHT = 600;
-const barContainer=d3.select('svg')
-  .attr('width',BAR_WIDTH)
-  .attr('height',BAR_HEIGHT);
-
-
-const emotionsBar=barContainer.append('g');
-
-const x=d3.scaleBand().rangeRound([0,BAR_WIDTH]).padding(0.1);
-const y=d3.scaleLinear().range([BAR_HEIGHT,0]);
-
-x.domain(INITIAL_DATA.map((d)=>d.emotion));
-y.domain([0,d3.max(INITIAL_DATA,(d)=>d.value)]);
-
-
-emotionsBar.selectAll('.bar')
-  .data(INITIAL_DATA)
-  .enter()
-  .append('rect')
-  .classed('bar',true)
-  .attr('width',x.bandwidth())
-  .attr('height',data=>BAR_HEIGHT-y(data.value))
-  .attr('x',data=>x(data.emotion))
-  .attr('y',data=>y(data.value));
-
-emotionsBar
-  .selectAll('.label')
-  .data(INITIAL_DATA)
-  .enter()
-  .append('text')
-  .text(data=>data.value)
-  .attr('x',data=>x(data.emotion))
-  ;*/
 
 
 

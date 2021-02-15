@@ -9,21 +9,23 @@
 
 <script src="faceDetector.js"></script>
 <script src="emotionClassifier.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+
 
 <style>
     body {
       margin: 0;
       padding: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 600px;
+      height: 600px;
       display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
-    canvas {
+    #overlay-canvas {
       position: absolute;
     }
+
+
   </style>
 
 </head>
@@ -31,9 +33,11 @@
 
 			<video webcam feed id="wcf" width="360" height="360" autoplay muted></video>
 			<canvas id="overlay-canvas"></canvas>
-			<div><canvas id="test-canvas"></canvas></div>
+			<canvas id="emotion-chart"  width="100" height="100" ></canvas>
 
 
 </body>
+<script src="visualizer.js"></script>
+
 <script src="script.js"></script>
 </html>    
