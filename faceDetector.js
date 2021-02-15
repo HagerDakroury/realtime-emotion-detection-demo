@@ -17,7 +17,7 @@ async function loadDetection(){
 
 async function detectFaces(model) {
 
-  const options = new faceapi.TinyFaceDetectorOptions({ inputSize: 256 });
+  const options = new faceapi.TinyFaceDetectorOptions();
 
   const predictions = await faceapi.detectAllFaces(document.getElementById('wcf'),options);
 
