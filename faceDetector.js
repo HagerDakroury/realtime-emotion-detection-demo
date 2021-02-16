@@ -1,38 +1,28 @@
 const DETECT_MODEL_PATH='./public/models/tiny_face_detector/tiny_face_detector_model-weights_manifest.json';
 
 
+/**loads the the tinyFaceDetector model using faceapi.js */
 async function loadDetection(){
-    // Load the model.
 
     return await faceapi.loadTinyFaceDetectorModel(DETECT_MODEL_PATH);
 
-    /*return model = await faceLandmarksDetection.load(
-      faceLandmarksDetection.SupportedPackages.mediapipeFacemesh);*/
     
 
 }
 
 
 
-
-async function detectFaces(model) {
+/**
+ *  detects faces from a video stream using a pre-loaded tinyFaceDetector model
+ * @returns An array of predictions
+ */
+async function detectFaces() {
 
   const options = new faceapi.TinyFaceDetectorOptions();
 
   const predictions = await faceapi.detectAllFaces(document.getElementById('wcf'),options);
 
-
-
-    // Pass in an image or video to the model. The model returns an array of
-    // bounding boxes, probabilities, and landmarks, one for each detected face.
-  
-    /*const predictions = await model.estimateFaces({
-      input: document.getElementById("wcf")
-    });
-    console.log(predictions);*/
-      
-    
-    return predictions;
+  return predictions;
 
   }
   

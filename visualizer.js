@@ -1,24 +1,15 @@
-const emotionChart=document.getElementById('emotion-chart').getContext('2d');
+const chartContainer=document.getElementById('emotion-chart').getContext('2d');
+let emotionChart;
 
-console.log(emotionChart);
+const EMOTIONS =  ["angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"];
+
+/**
+ *  initializes a horizontal bar to visualize emotions
+ */
 
 function initChart() {
-    var options = {
-        /*"animation": false,*/
-        "responsive": true,
-        "maintainAspectRatio": false,
-        "scales":{
-           "xAxes":[
-              {
-                 "ticks":{
-                    "beginAtZero":true
-                 }
-              }
-           ]
-        }
-     };
 
-    CHART_EMOTION = new Chart(emotionChart, {
+    emotionChart = new Chart(chartContainer, {
         type: 'horizontalBar',
         data: {
           "labels":[
@@ -32,17 +23,17 @@ function initChart() {
           ],
           "datasets":[
              {
-                "label":"Emotion: ",
-                "data": [0.2, 0.5, 0.7, 0.9, 0, 0, 0],
+                "label":"",
+                "data": [0, 0, 0, 0, 0, 0, 0],
                 "fill": false,
                 "backgroundColor":[
-                   "rgba(255, 99, 132, 0.2)",
-                   "rgba(255, 159, 64, 0.2)",
-                   "rgba(255, 205, 86, 0.2)",
-                   "rgba(75, 192, 192, 0.2)",
-                   "rgba(54, 162, 235, 0.2)",
-                   "rgba(153, 102, 255, 0.2)",
-                   "rgba(201, 203, 207, 0.2)"
+                   "rgba(255, 99, 132, 0.6)",
+                   "rgba(255, 159, 64, 0.6)",
+                   "rgba(255, 205, 86, 0.6)",
+                   "rgba(75, 192, 192, 0.6)",
+                   "rgba(54, 162, 235, 0.6)",
+                   "rgba(153, 102, 255, 0.6)",
+                   "rgba(201, 203, 207, 0.6)"
                 ],
                 "borderColor":[
                    "rgb(255, 99, 132)",
@@ -57,8 +48,33 @@ function initChart() {
              }
           ]
        },
-        options: options
+        options: {
+         "responsive": true,
+         "maintainAspectRatio": false,
+         "scales":{
+            "xAxes":[
+               {
+                  "ticks":{
+                     "beginAtZero":true
+                  }
+               }
+            ]
+         }
+      }
     });
+}
+
+/**
+ *  updtes the chart using the new predictions
+ * @param predictions An array of emotions predictions
+ */
+function updateChart(predictions){
+
+   emotionChart.data.datasets[0].label = '' + EMOTIONS[predictions.argMax(1).dataSync()[0]]; //label
+   emotionChart.data.datasets[0].data =predictions.dataSync(); //array
+   emotionChart.update(20);
+
+
 }
 
 initChart();

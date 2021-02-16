@@ -2,7 +2,6 @@
 <head>
 	
 
-<!-- Require face-landmarks-detection itself. -->
 <script src="face-api.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
 
@@ -11,29 +10,14 @@
 <script src="emotionClassifier.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 
-
-<style>
-    body {
-      margin: 0;
-      padding: 0;
-      width: 600px;
-      height: 600px;
-      display: flex;
-    }
-
-    #overlay-canvas {
-      position: absolute;
-    }
-
-
-  </style>
+<link href="style.css" rel="stylesheet">
 
 </head>
 <body>
 
 			<video webcam feed id="wcf" width="360" height="360" autoplay muted></video>
-			<canvas id="overlay-canvas"></canvas>
-			<canvas id="emotion-chart"  width="100" height="100" ></canvas>
+      <canvas id="overlay-canvas"></canvas>
+			<div id="emotion-container"><canvas id="emotion-chart"  ></canvas></div>
 
 
 </body>
